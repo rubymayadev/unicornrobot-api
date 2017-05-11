@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   after_create :update_access_token!
 
-  has_many :interests
+  has_many :interests, dependent: :destroy
 
   validates :username, presence: true
   validates :email, presence: true
