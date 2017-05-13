@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, only: []
   namespace :v1, defaults: {format: :json} do
     resource :login, only: [:create], controller: :sessions
-    resources :users, only: [:create]
+    resources :users, only: [:create, :index, :show, :update, :destroy]
     resources :interests, only: [:create, :destroy]
   end
   # The priority is based upon order of creation: first created -> highest priority.
