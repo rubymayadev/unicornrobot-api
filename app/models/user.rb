@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
   private
 
   #  Need to change to something more secure if you want to keep this token secure
+  #  replace this with JSON Webtokens getting from the authorization header instead
+  #  and using that in the session serializer
   def update_access_token!
     self.access_token = "#{self.id}:#{Devise.friendly_token}"
     save
@@ -21,7 +23,7 @@ class User < ActiveRecord::Base
 
   def generate_access_token
     loop do
-      token = "#{self.id}:Devis.friendly_token"
+      token = "#{self.id}:Devise.friendly_token"
       break token unless User.where(access_token: token).first
     end
   end

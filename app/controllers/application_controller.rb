@@ -24,7 +24,7 @@ class ApplicationController < ActionController::API
   private
 
   def authenticate_with_auth_token auth_token
-    # will need to find better way to create the auth_token
+    # will need to find better way to create the auth_token(maybe JWT)
     unless auth_token.include?(':')
       authentication_error
       return
