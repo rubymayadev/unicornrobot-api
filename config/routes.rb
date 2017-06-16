@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users, only: []
   namespace :v1, defaults: {format: :json} do
+    post 'auth_user' => 'authentication#authenticate_user'
+    get 'newHome' => 'home#index'
     resource :login, only: [:create], controller: :sessions
     resources :users, only: [:create, :index, :show, :update, :destroy]
     resources :interests, only: [:create, :destroy]

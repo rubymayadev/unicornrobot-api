@@ -1,5 +1,4 @@
 module V1
-  #  need to handroll own authetnciation process the way we did in old apps and use json web
   class SessionsController < ApplicationController
     skip_before_action :authenticate_user_from_token!
 
